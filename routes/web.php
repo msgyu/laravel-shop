@@ -18,4 +18,4 @@ Route::get('/', 'ShopController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/mycart', 'ShopController@myCart');
+Route::get('/mycart', 'ShopController@myCart')->middleware('auth');
