@@ -18,6 +18,6 @@ class ShopController extends Controller
     public function myCart()
     {
         $my_carts = Cart::all();
-        return view('mycarts', compact('my_carts'));
+        return view('mycart', compact('my_carts'));
     }
 }

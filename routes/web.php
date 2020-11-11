@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'ShopController@index');
+Route::get('/mycart', 'ShopController@myCart')->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/mycart', 'ShopController@myCart')->middleware('auth');
