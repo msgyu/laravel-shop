@@ -12,6 +12,6 @@ class StockSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('stocks')->truncate(); 
     }
 }
