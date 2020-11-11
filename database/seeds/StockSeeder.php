@@ -12,7 +12,6 @@ class StockSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('stocks')->truncate();
         DB::table('stocks')->insert([
             'name' => 'フィルムカメラ',
             'detail' => '1960年式のカメラです',
