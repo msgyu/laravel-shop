@@ -15,6 +15,10 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('stock_id');
+            $table->foreign('stock_id')->references('id')->on('stocks');
             $table->timestamps();
         });
     }
@@ -27,5 +31,7 @@ class CreateCartsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('carts');
+        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('users');
     }
 }
