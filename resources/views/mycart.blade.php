@@ -8,6 +8,7 @@
         {{ Auth::user()->name }}さんのカートの中身</h1>
       <div class="">
         <p class="text-center">{{ $message ?? '' }}</p><br>
+        @if($my_carts->isNotEmpty())
         <div class="d-flex flex-row flex-wrap">
           @foreach($my_carts as $my_cart)
           <div class="mycart_box">
@@ -32,6 +33,9 @@
             <button type="submit" class="btn btn-danger btn-lg text-center buy-btn">購入する</button>
           </form>
         </div>
+        @else
+        <p class="text-center">カートはからっぽです。</p>
+        @endif
         <a href="/">商品一覧へ</a>
       </div>
     </div>
