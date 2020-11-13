@@ -34,4 +34,17 @@ class cart extends Model
 
         return $message;
     }
+
+    public function deleteCart($stock_id)
+    {
+        $user_id = Auth::id();
+        $delete = $this->where('user_id', $user_id)->where('stock_id', $stock_id)->delete();
+
+        if ($delete > 0) {
+            $message = 'カートから一つの商品を削除しました';
+        } else {
+            $message = '削除に失敗しました';
+        }
+        return $message;
+    }
 }
