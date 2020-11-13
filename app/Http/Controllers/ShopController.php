@@ -15,11 +15,10 @@ class ShopController extends Controller
         $stocks = Stock::Paginate(6);
         return view('shop', compact('stocks'));
     }
-    public function myCart()
+    public function myCart(Cart $cart)
     {
-        $user_id = Auth::id();
-        $my_carts = Cart::where('user_id', $user_id)->get();
-        return view('mycart', compact('my_carts'));
+        $data = $cart->showCart();
+        return view('mycart', $data);
     }
     public function addMycart(Request $request)
     {
